@@ -1,0 +1,96 @@
+extends ../layouts/layout.pug
+
+block prepend head
+    - var title = 'Schedule admin'
+    - var description = 'Schedule admin'
+
+block content
+    section.schedule
+        header.schedule__header
+            h2.schedule__heading Расписание занятий 
+
+        .schedule__body
+            section.schedule__week
+                h3.schedule__title.schedule__title_monday
+                    span.visually-hidden Понедельник
+    
+                button.schedule__add(type='button')
+                    span.visually-hidden Добавить занятие
+
+                ul.schedule__list
+                    - var n = 1
+                    while n < 5
+                        include ../layouts/schedule-card.pug
+                
+            section.schedule__week
+                h3.schedule__title.schedule__title_tuesday
+                    span.visually-hidden Вторник
+
+                button.schedule__add(type='button')
+                    span.visually-hidden Добавить занятие
+
+                ul.schedule__list
+                    - var n = 1
+                    while n < 7
+                        include ../layouts/schedule-card.pug
+                
+            section.schedule__week
+                h3.schedule__title.schedule__title_wednesday
+                    span.visually-hidden Среда
+
+                button.schedule__add(type='button')
+                    span.visually-hidden Добавить занятие
+
+                ul.schedule__list
+                    - var n = 1
+                    while n < 6
+                        include ../layouts/schedule-card.pug
+                
+            section.schedule__week
+                h3.schedule__title.schedule__title_thursday
+                    span.visually-hidden Четверг
+
+                button.schedule__add(type='button')
+                    span.visually-hidden Добавить занятие
+
+                ul.schedule__list
+                    - var n = 1
+                    while n < 6
+                        include ../layouts/schedule-card.pug
+                
+            section.schedule__week
+                h3.schedule__title.schedule__title_friday
+                    span.visually-hidden Пятница
+
+                button.schedule__add(type='button')
+                    span.visually-hidden Добавить занятие
+
+                ul.schedule__list
+                    - var n = 1
+                    while n < 8
+                        include ../layouts/schedule-card.pug
+                
+            section.schedule__week
+                h3.schedule__title.schedule__title_saturday
+                    span.visually-hidden Суббота
+
+                button.schedule__add(type='button')
+                    span.visually-hidden Добавить занятие
+
+                ul.schedule__list
+                    - var n = 1
+                    while n < 4
+                        include ../layouts/schedule-card.pug
+                
+            section.schedule__week
+                h3.schedule__title.schedule__title_sunday
+                    span.visually-hidden Воскресенье
+
+                button.schedule__add(type='button')
+                    span.visually-hidden Добавить занятие
+
+                ul.schedule__list
+                    - var n = 1
+                    while n < 5
+                        include ../layouts/schedule-card.pug
+                

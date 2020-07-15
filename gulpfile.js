@@ -16,7 +16,8 @@ const gulp = require('gulp'),
 	  del = require('del'),
 	  imageResize = require('gulp-image-resize'),
 	  babel = require('gulp-babel'),
-	  browserSync = require('browser-sync').create();
+	  browserSync = require('browser-sync').create(),
+	  pug = require('gulp-pug');
 
 const cutImg = () => {
 	return gulp.src('src/img/name/*.jpg')
@@ -118,6 +119,14 @@ const clear = () => {
 };
 exports.clear = clear;
 
+const html = () => {
+	return gulp.src('src/pug/pages/**/*.pug')
+		.pipe(pug())
+		.pipe(gulp.dest('dist/'))
+        .pipe(browserSync.stream());
+};
+exports.html = html;
+
 const serve = () => {
 	browserSync.init({
 		server: "dist",
@@ -133,7 +142,7 @@ const serve = () => {
 
     gulp.watch('src/scss/**/*.scss', gulp.series('scss'));
     gulp.watch('src/js/*.js', gulp.series('js'));
-	gulp.watch('src/njk/**/*.njk', gulp.series('njk'));
+	gulp.watch('src/pug/**/*.pug', gulp.series('html'));
 	gulp.watch('src/img/**/*{jpg,png,svg}', gulp.series('img'));
 
 	gulp.watch('dist/**/*{jpg,png,svg}').on('change', browserSync.reload);
@@ -146,7 +155,7 @@ const build = gulp.series(
 	gulp.parallel(
 		scss,
 		js,
-		njk,
+		html,
 		fonts,
 		img,
 		favicons,

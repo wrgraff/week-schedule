@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
+
+.schedule {
+    border: 4px solid #f5f5f5;
+
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+}
+
+.schedule__header {
+    padding: 24px 32px;
+
+    border-bottom: 4px solid #f5f5f5;
+}
+
+.schedule__body {
+    padding: 24px 32px;
+}
+
+.schedule__heading {
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    text-transform: none;
+}
+
+.schedule__week {
+    display: grid;
+    grid-template-columns: 88px 1fr;
+    grid-template-rows: 68px 1fr;
+    gap: 24px;
+    margin-bottom: 24px;
+}
+
+.schedule__title {
+    position: relative;
+    z-index: 1;
+
+    align-self: start;
+    margin: 0;
+    padding: 16px 0;
+
+    background-color: #fff;
+    border: 3px solid #f5f5f5;
+    border-radius: 10px;
+
+    text-align: center;
+
+    &::before {
+        color: #1a73e8;
+
+        font-size: 24px;
+        font-weight: 700;
+    }
+}
+
+.schedule__title_monday::before {
+    content: 'ПН';
+}
+
+.schedule__title_tuesday::before {
+    content: 'ВТ';
+}
+
+.schedule__title_wednesday::before {
+    content: 'СР';
+}
+
+.schedule__title_thursday::before {
+    content: 'ЧТ';
+}
+
+.schedule__title_friday::before {
+    content: 'ПТ';
+}
+
+.schedule__title_saturday::before {
+    content: 'СБ';
+}
+
+.schedule__title_sunday::before {
+    content: 'ВС';
+}
+
+.schedule__list {
+    grid-row: span 2;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin: 0;
+    padding: 0;
+
+    list-style: none;
+
+    @media screen and (min-width: 1400px) {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+.schedule__add {
+    position: relative;
+
+    order: 1;
+    align-self: flex-start;
+    height: 64px;
+    margin-top: -40px;
+
+    background-repeat: no-repeat;
+    background-size: 16px 16px;
+    background-position: 50% calc(50% + 6px);
+    background-image:
+        linear-gradient(90deg, transparent 0, transparent 6px, #1a73e8 6px, #1a73e8 10px, transparent 10px),
+        linear-gradient(0deg, transparent 0, transparent 6px, #1a73e8 6px, #1a73e8 10px, transparent 10px);
+    background-color: #f5f5f5;
+    border: none;
+    border-radius: 5px;
+
+    &::after {
+        content: 'Добавить занятие';
+        position: absolute;
+        top: calc(100% + 4px);
+        left: 50%;
+
+        display: none;
+        padding: 6px 8px;
+
+        color: #fff;
+        background-color: #333;
+        border-radius: 4px;
+
+        font-size: 12px;
+
+        transform: translateX(-50%);
+    }
+
+    &:hover,
+    &:focus {
+        background-color: #eaeaea;
+
+        &::after {
+            display: block;
+        }
+    }
+
+    &:focus {
+        outline: 3px solid rgba(#1a73e8, .5);
+        outline-offset: 2px;
+    }
+}

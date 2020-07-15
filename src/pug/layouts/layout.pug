@@ -1,0 +1,46 @@
+doctype html
+html(lang='ru')
+    head
+        block head
+            meta(charset='UTF-8')
+            meta(name='viewport' content='width=device-width, initial-scale=1.0')
+            meta(http-equiv='X-UA-Compatible' content='ie=edge')
+
+            title= title
+            meta(name='description' content=description)
+            if keywords
+                meta(name='keywords' content=keywords)
+            
+            link(rel='stylesheet' href='http://peach-bear.ru/styles/skins/modern/design/calendar/calendar.css')
+            link(rel='stylesheet' href='http://peach-bear.ru/styles/skins/modern/design/css/popup.css')
+            link(rel='stylesheet' href='http://peach-bear.ru/styles/skins/modern/design/css/grid.css')
+            link(rel='stylesheet' href='http://peach-bear.ru/styles/skins/modern/design/css/main.css')
+            link(rel='stylesheet' href='http://peach-bear.ru/styles/skins/modern/design/css/table.css')
+            link(rel='stylesheet' href='http://peach-bear.ru/styles/skins/modern/design/css/sweetalert2.css')
+            link(rel='stylesheet' href='http://peach-bear.ru/styles/skins/modern/design/css/selectize.css')
+            link(rel='stylesheet' href='http://peach-bear.ru/styles/skins/modern/design/css/jquery.jgrowl.css')
+            link(rel='stylesheet' href='/css/style.css')
+            
+            - var faviconSizes = [16, 24, 32, 64]
+            each size in faviconSizes
+                link(rel='icon' href='/img/favicons/base-' + size + 'x' + size + '.png' sizes=size + 'x' + size)
+
+            meta(name='apple-mobile-web-app-title' content=title)
+            - var touchiconSizes = [120, 152, 180]
+            each size in touchiconSizes
+                link(rel='apple-touch-icon' sizes=size + 'x' + size href='/img/favicons/apple-touch-icon-' + size + 'x' + size + '.png')
+
+            meta(property='og:title' content=title)
+            meta(property='og:description' content=description)
+            meta(property='og:image' content='/img/favicons/og.jpg')
+            meta(property='og:type' content='website')
+            meta(property='og:site_name' content=title)
+
+    body
+        .content
+            .layout
+                .column
+                    .row
+                        .col-md-12
+                            block content
+

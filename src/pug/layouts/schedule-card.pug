@@ -1,0 +1,27 @@
+- var excercises = ['Bums+Tabs', 'Fitball Pilates', 'Flex', 'F-Training', 'Pilates', 'Pump', 'Step 0', 'Step 1', 'Stretching', 'Super Sculpt', 'Tabs_Flex', 'Tae-bo', 'UB+Tabs', 'Yoga', 'Zumba', 'Бокс']
+- var trainers = ['Наталья', 'Денис', 'Ксения', 'Соня', 'Дима', 'Татьяна Ю.', 'Евгений', 'Ирина', 'Дарья', 'Дарья Н.', 'Татьяна К.']
+
+li.schedule__item.schedule-card
+    - n++
+    label.schedule-card__exercise
+        span.schedule-card__text Занятие
+        select(name='exercise').schedule-card__select
+            each option in excercises
+                option= option
+
+    label.schedule-card__trainer
+        span.schedule-card__text Тренер
+        select(name='trainer').schedule-card__select
+            each option in trainers
+                option= option
+
+    .schedule-card__timing
+        label.schedule-card__time
+            span.schedule-card__text Время
+            input(name='time' type='time' min='07:00' max='24:00').schedule-card__input
+        label.schedule-card__duration
+            span.schedule-card__text Продолжительность
+            input(name='duration' type='number' min='30' max='240' step='15').schedule-card__input
+
+    button.schedule-card__delete
+        span.visually-hidden Удалить
